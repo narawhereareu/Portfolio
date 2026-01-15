@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import Register from "./Register";
+import axios from "axios";
+
 
 export default function Login() {
   const navigate = useNavigate();
@@ -13,22 +15,44 @@ export default function Login() {
   const [password,setPassword] = useState('');
   const [error, setError] = useState('');
 
-   const handleLogin = (e) => {
-    e.preventDefault(); 
+ const handleLogin = async (e) => {
+  e.preventDefault();
+  setError('');
 
-    if (email === MOCK_USER.email && password === MOCK_USER.password) {
+  try {
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/auth/login`,
       {
-        navigate("/home");
+        EMAIL: email,
+        PASS: password,
       }
-    } else {
-      Swal.fire({
-        title: "Error!",
-        text: "ข้อมมูลไม่ถูกต้อง",
-        icon: "error",
-        confirmButtonText: "Retry"
-      });
+    );
+
+    if (res?.data) {
+      navigate('/landing');
+      return;
     }
-  };
+
+    throw new Error('Unexpected response from server');
+
+  } catch (err) {
+    const message =
+      err?.response?.data?.error || // backend ใช้ key "error"
+      err?.response?.data?.message ||
+      err.message ||
+      'Login failed';
+
+    setError(message);
+
+    Swal.fire({
+      title: 'Error!',
+      text: message,
+      icon: 'error',
+      confirmButtonText: 'Retry',
+    });
+  }
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4">

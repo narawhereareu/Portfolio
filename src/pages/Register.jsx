@@ -2,6 +2,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { Eye,EyeClosed,ArrowLeft } from "lucide-react";
+import axios from "axios";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -20,37 +21,60 @@ export default function Register() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleRegister = async () => {
+  const { FNAME, LNAME, EMAIL, TEL, PASS } = formData;
 
-  const handleRegister = () => {
-    const { FNAME, LNAME, EMAIL, TEL, PASS } = formData;
+  if (!FNAME || !LNAME || !EMAIL || !TEL || !PASS) {
+    Swal.fire({
+      title: "Error",
+      text: "Please fill all data",
+      icon: "error",
+    });
+    return;
+  }
 
-    if (!FNAME || !LNAME || !EMAIL || !TEL || !PASS) {
-      Swal.fire({
-        title: "Error",
-        text: "Please fill all data",
-        icon: "error"
-      });
-      return;
-    }
+  try {
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/auth/register`,
+      {
+        FNAME,
+        LNAME,
+        EMAIL,
+        TEL,
+        PASS,
+      }
+    );
 
     Swal.fire({
       title: "Success!",
-      text: "Account created successfully!",
+      text: res.data?.message || "Account created successfully!",
       icon: "success",
-      confirmButtonText: "OK"
+      confirmButtonText: "OK",
     }).then(() => {
-      // reset form
       setFormData({
-        FNAME: '',
-        LNAME: '',
-        EMAIL: '',
-        TEL: '',
-        PASS: ''
+        FNAME: "",
+        LNAME: "",
+        EMAIL: "",
+        TEL: "",
+        PASS: "",
       });
-      // navigate to login page
       navigate("/login");
     });
-  };
+
+  } catch (err) {
+    const message =
+      err?.response?.data?.error ||
+      err?.response?.data?.message ||
+      "Register failed";
+
+    Swal.fire({
+      title: "Error",
+      text: message,
+      icon: "error",
+    });
+  }
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4 w-auto">
