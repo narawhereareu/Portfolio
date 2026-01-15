@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { X, BookOpen, Code, Rocket } from "lucide-react";
 
+
 export default function About() {
   const [showModal, setShowModal] = useState(false);
   
@@ -18,7 +19,8 @@ export default function About() {
           
           <button
             onClick={() => setShowModal(true)}
-            className="px-5 py-2.5 border-2 border-gray-900 text-gray-900 rounded-lg hover:bg-gray-900 hover:text-white transition-all font-medium inline-flex items-center gap-2 mb-6"
+            className="px-5 py-2.5 border-2 border-gray-900 text-gray-900 
+            rounded-lg hover:bg-gray-900 hover:text-white transition-all font-medium inline-flex items-center gap-2 mb-6"
           >
             <BookOpen size={18} />
             Read My Full Story
