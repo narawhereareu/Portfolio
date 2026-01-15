@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -35,44 +36,87 @@ export default function Contact() {
   };
 
   return (
-    <div className="max-w-xl w-full" data-aos="fade-up">
+    <div className="max-w-6xl w-full" data-aos="fade-up">
       <h2 className="text-3xl font-bold mb-6 text-gray-900">Get In Touch</h2>
-      <div className="bg-white rounded-xl border border-gray-200 p-8">
-        <p className="text-gray-600 mb-6">
-          Have a project in mind? Let's talk.
-        </p>
-        
-        <div className="space-y-4">
-          <input 
-            type="text" 
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your Name" 
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition" 
-          />
-          <input 
-            type="email" 
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Your Email" 
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition" 
-          />
-          <textarea 
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Your Message" 
-            rows="5" 
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition"
-          ></textarea>
-          <button 
-            onClick={handleSubmit} 
-            className="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition"
-          >
-            Send Message
-          </button>
+      
+      <div className="grid lg:grid-cols-2 gap-8">
+        {/* Contact Form */}
+        <div className="bg-white rounded-xl border border-gray-200 p-8">
+          <p className="text-gray-600 mb-6">
+            Have a project in mind? Let's talk.
+          </p>
+          
+          <div className="space-y-4">
+            <input 
+              type="text" 
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Your Name" 
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition" 
+            />
+            <input 
+              type="email" 
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Your Email" 
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition" 
+            />
+            <textarea 
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Your Message" 
+              rows="5" 
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition"
+            ></textarea>
+            <button 
+              onClick={handleSubmit} 
+              className="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition"
+            >
+              Send Message
+            </button>
+          </div>
+        </div>
+
+        {/* Contact Info */}
+        <div className="space-y-6">
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-gray-100 rounded-lg">
+                <Mail size={24} className="text-gray-700" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                <p className="text-gray-600">nara@example.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-gray-100 rounded-lg">
+                <Phone size={24} className="text-gray-700" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
+                <p className="text-gray-600">+66 123 456 789</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-gray-100 rounded-lg">
+                <MapPin size={24} className="text-gray-700" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Location</h3>
+                <p className="text-gray-600">Bangkok, Thailand</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

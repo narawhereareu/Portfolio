@@ -30,27 +30,27 @@ export default function Home() {
 
   return (
     <MainLayout activeSection={activeSection}>
-      <section id="hero" className="min-h-screen flex items-center px-6 md:px-12">
+      <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-12 py-20">
         <MainPage />
       </section>
 
-      <section id="about" className="min-h-screen flex items-center px-6 md:px-12">
+      <section id="about" className="min-h-screen flex items-center justify-center px-6 md:px-12 py-20">
         <About />
       </section>
 
-      <section id="projects" className="min-h-screen flex items-center px-6 md:px-12">
+      <section id="projects" className="min-h-screen flex items-center justify-center px-6 md:px-12 py-20">
         <Project />
       </section>
 
-      <section id="contact" className="min-h-screen flex items-center px-6 md:px-12">
+      <section id="contact" className="min-h-screen flex items-center justify-center px-6 md:px-12 py-20 mb-20">
         <Contact />
       </section>
 
       <style>{`
         [data-aos] {
           opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 0.6s ease, transform 0.6s ease;
+          transform: translateY(20px);
+          transition: opacity 0.5s ease, transform 0.5s ease;
         }
         [data-aos].aos-animate {
           opacity: 1;

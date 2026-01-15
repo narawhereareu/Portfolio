@@ -22,13 +22,34 @@ export default function Project() {
       tech: "React, D3.js, API",
       github: "#",
       demo: "#"
+    },
+    { 
+      title: "Social Media App", 
+      desc: "Real-time social platform with messaging features", 
+      tech: "React, Socket.io, Node.js",
+      github: "#",
+      demo: "#"
+    },
+    { 
+      title: "Portfolio Builder", 
+      desc: "Drag-and-drop portfolio website builder", 
+      tech: "React, Next.js, Tailwind",
+      github: "#",
+      demo: "#"
+    },
+    { 
+      title: "Analytics Dashboard", 
+      desc: "Business intelligence dashboard with charts", 
+      tech: "React, Chart.js, Express",
+      github: "#",
+      demo: "#"
     }
   ];
 
   return (
-    <div className="max-w-4xl w-full" data-aos="fade-up">
+    <div className="max-w-7xl w-full" data-aos="fade-up">
       <h2 className="text-3xl font-bold mb-8 text-gray-900">Projects</h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((project, i) => (
           <div 
             key={i} 
@@ -36,7 +57,7 @@ export default function Project() {
             data-aos="fade-up" 
             data-aos-delay={i * 100}
           >
-            <div className="w-full h-32 bg-gray-100 rounded-lg mb-4"></div>
+            <div className="w-full h-40 bg-gray-100 rounded-lg mb-4"></div>
             <h3 className="text-lg font-semibold mb-2 text-gray-900">{project.title}</h3>
             <p className="text-gray-600 mb-3 text-sm">{project.desc}</p>
             <p className="text-xs text-gray-500 mb-4">{project.tech}</p>
