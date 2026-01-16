@@ -6,6 +6,7 @@ import Project from "../components/sections/Project";
 import Contact from "../components/sections/Contact";
 import { useAOS } from "../hooks/useAOS";
 
+
 export default function Home() {
   useAOS();
   const [activeSection, setActiveSection] = useState('hero');

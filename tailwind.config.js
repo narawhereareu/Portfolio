@@ -4,6 +4,9 @@ module.exports = {
       animation: {
         'blob': 'blob 7s infinite', // วนซ้ำทุก 7 วินาที
       },
+      fontFamily: {
+        sans: ["Sukhumvit Set", "system-ui", "sans-serif"],
+      },
       keyframes: {
         blob: {
           '0%': { transform: 'translate(0px, 0px) scale(1)' },
@@ -14,4 +17,5 @@ module.exports = {
       },
     },
   },
+   plugins: [],
 }
