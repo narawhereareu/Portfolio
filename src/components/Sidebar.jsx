@@ -86,8 +86,8 @@ export default function Sidebar({ activeSection, isCollapsed, setIsCollapsed }) 
               <div className="flex items-center gap-3 px-3 py-2">
                 <div className="w-8 h-8 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex-shrink-0"></div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-800 truncate">Nara Dev</p>
-                  <p className="text-xs text-gray-500 truncate">nara@example.com</p>
+                  <p className="text-sm font-medium text-gray-800 truncate">Narathip Janta</p>
+                  <p className="text-xs text-gray-500 truncate">nara</p>
                 </div>
               </div>
             </div>
