@@ -7,6 +7,7 @@ import Contact from "../components/sections/Contact";
 import Experienc from "../components/sections/Experienc";
 import { useAOS } from "../hooks/useAOS";
 
+
 export default function Home() {
   useAOS();
   const [activeSection, setActiveSection] = useState('hero');
