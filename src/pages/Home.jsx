@@ -5,11 +5,11 @@ import About from "../components/sections/About";
 import Project from "../components/sections/Project";
 import Contact from "../components/sections/Contact";
 import Experienc from "../components/sections/Experienc";
-import { useAOS } from "../hooks/useAOS";
+//import { useAOS } from "../hooks/useAOS";
 
 
 export default function Home() {
-  useAOS();
+ // useAOS();
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
