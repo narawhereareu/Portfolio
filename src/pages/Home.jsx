@@ -4,6 +4,7 @@ import MainPage from "../components/sections/MainPage";
 import About from "../components/sections/About";
 import Project from "../components/sections/Project";
 import Contact from "../components/sections/Contact";
+import Experienc from "../components/sections/Experienc";
 import { useAOS } from "../hooks/useAOS";
 
 export default function Home() {
@@ -32,6 +33,10 @@ export default function Home() {
     <MainLayout activeSection={activeSection}>
       <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-12 py-20">
         <MainPage />
+      </section>
+
+      <section id="exp" className="min-h-screen flex items-center justify-center px-6 md:px-12 py-20 mb-20">
+        <Experienc />
       </section>
 
       <section id="about" className="min-h-screen flex items-center justify-center px-6 md:px-12 py-20">
